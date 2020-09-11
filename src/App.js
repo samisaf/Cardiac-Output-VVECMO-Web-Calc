@@ -43,8 +43,8 @@ export default function({ name }) {
       <p className={title}>Cardiac Output in VV ECMO</p>
 
       <Input label="ECMO Flow Rate (L/min)" onChange={setFlowECMO} />
-      <Input label="ECMO Arterial O2 Saturation (%)" onChange={setO2ECMO} />
-      <Input label="ECMO Venous O2 Saturation (%)" onChange={setO2Venous} />
+      <Input label="ECMO Arterial O2 Sat (%)" onChange={setO2ECMO} />
+      <Input label="ECMO Venous O2 Sat (%)" onChange={setO2Venous} />
       <Input label="Arterial O2 Saturation (%)" onChange={setO2Art} />
 
       <Input label="SBP (mmHg)" onChange={setSbp} />
