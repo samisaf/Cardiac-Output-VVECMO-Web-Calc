@@ -1,11 +1,8 @@
 import React from "react";
-import Switch from "./Components/Switch";
 import Input from "./Components/Input";
 import Show from "./Components/Show";
 
 export default function({ name }) {
-  //helper functions
-  const sqrt = Math.sqrt;
   const round = (n, d = 0) => Math.round(n * 10 ** d) / 10 ** d;
   const [height, setHeight] = React.useState(0.0);
   const [weight, setWeight] = React.useState(0.0);
@@ -24,27 +21,22 @@ export default function({ name }) {
   const venousFlow =
     ((FlowECMO * (O2ECMO - O2Art)) / (O2Art - O2Venous)) * 1000;
 
-  
-
   const map = sbp / 3 + (2 * dbp) / 3;
   const svr = (1000 * 80 * (map - rap)) / cardiacOutput;
   const bsa = 0.007184 * weight**.425* height**.725;
 
   const cardiacIndex = cardiacOutput / bsa;
 
-  const card = "max-w-sm rounded shadow-lg bg-gray-300 p-2 m-2";
+  const card = "max-w-lg rounded shadow-lg bg-gray-300 p-2 m-2";
   const title = "font-bold";
-  const row = "flex m-2";
-  const colLabel = "w-2/3";
-  const colInput = "w-1/3 text-center";
 
   return (
     <div className={card}>
       <p className={title}>Cardiac Output in VV ECMO</p>
 
       <Input label="ECMO Flow Rate (L/min)" onChange={setFlowECMO} />
-      <Input label="ECMO Arterial O2 Sat (%)" onChange={setO2ECMO} />
-      <Input label="ECMO Venous O2 Sat (%)" onChange={setO2Venous} />
+      <Input label="ECMO Arterial O2 Saturation (%)" onChange={setO2ECMO} />
+      <Input label="ECMO Venous O2 Saturation (%)" onChange={setO2Venous} />
       <Input label="Arterial O2 Saturation (%)" onChange={setO2Art} />
 
       <Input label="SBP (mmHg)" onChange={setSbp} />
